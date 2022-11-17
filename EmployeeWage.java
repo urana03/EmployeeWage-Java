@@ -16,26 +16,33 @@ public class EmployeeWage
     	int partTimeHrs = 4;
     	
     	
-    	int empWorkingDays = 20;
-    	int totalWorkingDays=0;
+    	int totalWorkingDays = 20;
+    	int empWorkingDays=0;
     	
-    	while(totalWorkingDays<=empWorkingDays) {
+    	int totalWorkingHrs = 100;
+    	int perDayHrs = 0;
+    	
+    	while(empWorkingDays<=totalWorkingDays || perDayHrs<=totalWorkingHrs) {
     	switch(check) {
     		
     	case 0:
     		 fullTimeHrs = 8;
+    		 perDayHrs = perDayHrs + fullTimeHrs;
+    		 
     		 dailyEmpWage = fullTimeHrs*wagePerHr;
     		 totalWage = totalWage+dailyEmpWage;
     	    break;
     		
     	case 1:
     		 partTimeHrs = 4;
+    		 perDayHrs = perDayHrs + partTimeHrs;
+    		 
     		 dailyEmpWage = partTimeHrs*wagePerHr;
     		 totalWage = totalWage+dailyEmpWage;
     		break;
     	
     	}
-    	totalWorkingDays++;
+    	empWorkingDays++;
     	
     	}	
     	System.out.println("This month's wage of employee: "+totalWage);
