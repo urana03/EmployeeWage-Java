@@ -10,15 +10,17 @@ public class EmployeeWage
     	
     	int wagePerHr = 20;
     	int fullTimeHrs = 8;
+    	int partTimeHrs = 4;
     	int dailyEmpWage = 0;
     	
     	if(check == 0) {
     		
     		dailyEmpWage = fullTimeHrs*wagePerHr;
-    		System.out.println("Today's Employee Wage: "+ dailyEmpWage);
+    		System.out.println("Full Time Employee Wage: "+ dailyEmpWage);
     	}
     	else {
-    	    System.out.println("Employee is absent.");
+    		dailyEmpWage = partTimeHrs*wagePerHr;
+    	    System.out.println("Part Time Employee Wage: "+ dailyEmpWage);
     	}
     	
     	
