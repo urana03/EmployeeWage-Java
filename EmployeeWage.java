@@ -6,11 +6,9 @@ public class EmployeeWage
 {
 	public static final int fullTimeHrs = 1;
 	public static final int partTimeHrs = 2;
-	public static final int wagePerHr = 20;
-	public static final int totalWorkingDays = 20;
-	public static final int totalWorkingHrs = 100;
 	
-	public static int computeWage(){
+	public static int computeWage(String company,int wagePerHr,
+			                        int totalWorkingHrs,int totalWorkingDays){
 		
 		int empHrs = 0, empWorkingDays=0, totalEmpHrs = 0;
 		
@@ -45,7 +43,7 @@ public class EmployeeWage
         	
         	}	
     	    int totalEmpWage = totalEmpHrs*wagePerHr;
-        	System.out.println("This month's wage of employee: "+totalEmpWage);
+        	System.out.println("This month's wage of "+company+ " employee: "+totalEmpWage);
     	    return totalEmpWage;
         }
 	
@@ -53,7 +51,8 @@ public class EmployeeWage
     public static void main( String[] args )
     {
     	
-    	computeWage();
+    	computeWage("Boat",30,80,24);
+    	computeWage("Mi",25,100,20);
     
     	}
 
