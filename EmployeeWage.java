@@ -7,8 +7,23 @@ public class EmployeeWage
 	public static final int fullTimeHrs = 1;
 	public static final int partTimeHrs = 2;
 	
-	public static int computeWage(String company,int wagePerHr,
-			                        int totalWorkingHrs,int totalWorkingDays){
+	private final String company;
+	private final int wagePerHr;
+	private  final int totalWorkingHrs;
+	private  final int totalWorkingDays;
+	private int totalEmpWage;
+	
+	public EmployeeWage(String company,int wagePerHr,
+			                        int totalWorkingHrs,int totalWorkingDays) {
+		
+		this.company = company;
+		this.wagePerHr = wagePerHr;
+		this.totalWorkingHrs= totalWorkingHrs;
+		this.totalWorkingDays = totalWorkingDays;
+		
+	}
+	
+	public void computeWage(){
 		
 		int empHrs = 0, empWorkingDays=0, totalEmpHrs = 0;
 		
@@ -42,18 +57,25 @@ public class EmployeeWage
         	empWorkingDays++;
         	
         	}	
-    	    int totalEmpWage = totalEmpHrs*wagePerHr;
-        	System.out.println("This month's wage of "+company+ " employee: "+totalEmpWage);
-    	    return totalEmpWage;
+    	    
+    	totalEmpWage = totalEmpHrs*wagePerHr;
+        
         }
+	   @Override
+	   public String toString() {
+		   
+		  return "Total Employee Wage of "+company+ " is: " +totalEmpWage;
+	  }
 	
-	
-    public static void main( String[] args )
+    public static void main(String args[])
     {
-    	
-    	computeWage("Boat",30,80,24);
-    	computeWage("Mi",25,100,20);
-    
-    	}
+        EmployeeWage boat = new EmployeeWage("Boat",30,200,24);
+        EmployeeWage Mi = new EmployeeWage("Mi",25,100,20);
+        boat.computeWage();
+        System.out.println(boat);
+        Mi.computeWage();
+        System.out.println(Mi);
+        
+        }
 
 }
